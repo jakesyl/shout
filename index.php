@@ -1,6 +1,6 @@
 <?php 
 //let's get to work 
-$ui = "message|1,1;'this is really gay'";
+$ui = "message|1,1;'this is really dumb'";
 function split ($ui){
 $type = explode("|", $ui);
 $lat =  explode (",", $type[2]);
