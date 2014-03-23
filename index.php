@@ -1,5 +1,6 @@
 <?php 
 //let's get to work 
+print("arg");
 $ui = "message|1,1;'this is really dumb'";
 echo $ui;
 function split ($ui){
