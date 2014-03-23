@@ -22,7 +22,7 @@ $messag = $long[2];
 $message = ["type"=>$type1,"lat"=>$lat[1], "long" => $lat[1], "message" => $mesag];
 return $message;
 }
- echo  
+
 
 
 ?> 
