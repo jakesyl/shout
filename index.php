@@ -1,7 +1,7 @@
 <?php 
 //let's get to work 
 //cleardb setup
-test error 
+echo "jesus";
 $url=parse_url(getenv("mysql://b914ceb3852d81:51103134@us-cdbr-east-05.cleardb.netheroku_d9af4d7caf0d3d4?reconnect=true"));
 
 $server = $url["host"];
