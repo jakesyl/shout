@@ -5,19 +5,21 @@
 TODO add messages
 */
 //how we send : "message|1,1;'this is really dumb'/username";
-$ui = $_POST["data"]
+$ui = $_POST["data"]//Accepts a post request
+
 function splitly($ui){
-$type = explode('|', $ui);
+$type = explode('|', $ui);//explodes by several parameters
 $lat =  explode (',', $type[1]);
 $long = explode(';', $lat[1]);
 $messag = explode('/', $long[1]);
 //echo $long[1];
 $un = $messag[1];
-$message = array ("username"=>$un,"type"=>$type[0],"lat"=>$lat[0], "long" => $long[0], "mess" => $long[1]);
+$message = array ("username"=>$un,"type"=>$type[0],"lat"=>$lat[0], "long" => $long[0], "mess" => $long[1]);//defines everything in a pretty array
 return $message;
  test($ui,$function,$type,$lat,$long,$messag,$message);
 }
-$message = splitly($ui);
+
+$message = splitly($ui);//$message is our assoc array for the rest of this file
 function messageex($message)
 {
 $realmess =  $message['mess'];//workaround
@@ -25,23 +27,25 @@ $messly = explode("/",$realmess);
 $mess2 = $messly[0];
 return $mess2;
 }
-$messly = messageex($message);
+$messly = messageex($message);//WTF is messly
 //print_r ($message);//just a checker
 //TODO insert zachs distance function
 
 //TODO make this a function
-$link = mysqli_connect ('localhost', 'root', 'jake1998', "chatly");
-if ($link->connect_errno) {
-echo "There was an error, we'll fix it soon please email me at mailto:jake@lexake.com";
-}
+//$link = mysqli_connect ('localhost', 'root', 'jake1998', "chatly");//TODO MAKE THIS" SHIT WORK
+//if ($link->connect_errno) {//Checks for an error
+//echo "There was an error, we'll fix it soon please email me at mailto:jake@lexake.com";//let's fix this
+//}
 
 //long1/lat1 are you, long2/lat2 are you your checking against
 //use later
 //why not- a workaround
-$lat = $message['lat'];
-$long = $message['long'];
+$lat = $message['lat'];//The latitude
+$long = $message['long'];//The longitude
 
-function checkDistance($lat, $long, $latcheck, $longcheck){
+//do a </> function to filter through some of the sql
+
+function checkDistance($lat, $long, $latcheck, $longcheck){//This shit doesn't work
                 if (sqrt(($long1-$long2)^2 + ($lat1-$lat2)^2)/69 <= 10){
                         return true;
                 }
@@ -51,15 +55,15 @@ function checkDistance($lat, $long, $latcheck, $longcheck){
         }
 
 
-function ping ($message,$link,$latly, $longly) {
-$result = mysqli_query("SELECT ID, LAT, LONG FROM CHATS");
-$varly = mysqli_affected_rows($link);
-$messages = array();
-if ($varly = 0)
-{
-return "";
-}
-for ($i=1;$i!=$varly;
+//function ping ($message,$link,$latly, $longly) {//if its a ping
+//mysql is no longer in use$result = mysqli_query("SELECT ID, LAT, LONG FROM CHATS");//change this
+//$varly = mysqli_affected_rows($link);//^
+//$messages = array();
+//if ($varly = 0)
+//{
+//return "";
+//}
+for ($i=1;$i!=$varly;)//shit i forgot to close the ) before, fixed it now..//Get's distances for the checking
 {
 $latly = mysqli_query($link,"SELECT lat FROM CHATS WHERE ID =". $varly); 
 $longly = mysqli_query($link,"SELECT long FROM CHATS WHERE ID =". $varly); 
