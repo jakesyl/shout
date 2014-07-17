@@ -1,10 +1,16 @@
 <?php
+
+//AT THIS POINT LET'S JUST GET POSTGRE TO WORK
+
+/*
+
 //let's get to work 
 //cleardb setup
-/*
-TODO add messages
-*/
+
+//TODO add messages
+
 //how we send : "message|1,1;'this is really dumb'/username";
+
 $ui = $_POST["data"]//Accepts a post request
 
 function splitly($ui){
@@ -83,7 +89,7 @@ ping($message,$link,$lat, $long);
 
 function idgen ($link){
 $date = mysqli_query($link, "SELECT MAX(date) FROM chats");
-$id1 = mysqli_query($link, "SELECT id FROM chats WHERE date ="/*.$date*/);
+$id1 = mysqli_query($link, "SELECT id FROM chats WHERE date =$date);
 if (mysqli_affected_rows($link)==0)
 {
 $id = 1;
@@ -98,13 +104,11 @@ $querly = "INSERT INTO chats (username, lat, longly, message, ID) VALUES (".$mes
 //echo $querly;
 mysqli_query($link, $querly);
 
-/*$tablename = rand(100000000,99999999);
+$tablename = rand(100000000,99999999);
 $tableid = $tablename+1;
 //add a table id later
 $thequery = "INSERT INTO tbldir (id, name) VALUES (".$id.", ".$tablename.")"; 
 mysqli_query($link,$thequery);
-*/
-/*
 uselesss shit: 
 function test($ui,$function,$type,$lat,$long,$messag,$message)
 {
@@ -122,8 +126,20 @@ echo "1";
 print_r($message);
 }
 
-*/
+
 
 //REMEMBER U NEED TO ADD 1 MESSAGE TO THE THING FOR IT TO WORK
+*/
+/* 
+Connection how to: timothy@zarkov:~$ psql -h ec2-184-73-194-179.compute-1.amazonaws.com
+-U dj1wcxb3x9fy3x5 ul28zxpr39no1rr
+Password for user ul28zxpr39no1rr: ********
+psql (8.4.9, server 9.0.5)
+WARNING: psql version 8.4, server version 9.0.
+         Some psql features might not work.
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+Type "help" for help.
 
+
+dj1wcxb3x9fy3x5=>*/
 ?>
